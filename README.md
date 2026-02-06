@@ -5,8 +5,7 @@
 ## Архитектура
 
 - **Clean Architecture**: Domain / Data / Presentation
-- **State Management**: Cubit (flutter_bloc)
-- **Dependency Injection**: get_it
+- **State Management**: Cubit 
 - **Обработка ошибок**: пустой URL, невалидный URL, сеть, отсутствие изображений
 - **Тесты**: unit-тесты для UseCase
 
