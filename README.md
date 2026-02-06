@@ -1,17 +1,50 @@
-# test_invest
+# Парсер изображений на Flutter
 
-## Image Parser App
+Приложение на Flutter, которое загружает HTML-страницу сайта и извлекает все изображения, показывая их в списке.
 
-Flutter application that loads an HTML page and parses image tags.
+## Архитектура
 
-### Architecture
+- **Clean Architecture**: Domain / Data / Presentation
+- **State Management**: Cubit (flutter_bloc)
+- **Dependency Injection**: get_it
+- **Обработка ошибок**: пустой URL, невалидный URL, сеть, отсутствие изображений
+- **Тесты**: unit-тесты для UseCase
 
-- Clean Architecture
-- Domain / Data / Presentation layers
-- Cubit for state management
+## Структура проекта
+lib/
+├── domain/
+│ ├── entities/
+│ ├── repositories/
+│ └── usecases/
+├── data/
+│ ├── datasources/
+│ └── repositories/
+└── presentation/
+├── pages/
+├── widgets/
+└── state/
 
-### How to run
+## Как запустить
+1. Клонировать репозиторий: git clone https://github.com/kaimep/image_parser.git
+2. Перейдите в папку проекта: cd image_parser
+3. Установить зависимости: flutter pub get
+4. Запустить приложение: flutter run
 
-```bash
-flutter pub get
-flutter run
+## Особенности:
+Используется сайт: https://books.toscrape.com
+Парсится только одна страница
+Для каждого изображения выводятся:
+Превью картинки
+Полный URL
+Alt-текст (если есть)
+Все состояния Cubit:
+initial — начальное состояние
+loading — загрузка изображений
+loaded — изображения успешно загружены
+error — ошибка при загрузке
+
+## Unit-test
+
+Тестируется UseCase:
+1. успешный возврат списка изображений
+2. обработка ошибок репозитория
